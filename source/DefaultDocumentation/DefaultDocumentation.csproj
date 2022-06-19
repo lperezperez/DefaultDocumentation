@@ -1,8 +1,0 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="DefaultDocumentation.targets" />
-
-  <PropertyGroup Label="Debug" Condition="'$(Configuration)'=='Debug'">
-    <Optimize>false</Optimize>
-    <DefineConstants>DEBUG</DefineConstants>
-  </PropertyGroup>
-</Project>

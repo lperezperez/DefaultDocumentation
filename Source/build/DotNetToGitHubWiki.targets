@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--EXTERNAL_PROPERTIES: MSBuildThisFileDirectory-->
+<!--EXTERNAL_PROPERTIES: MSBuildThisFileName-->
+<!--EXTERNAL_PROPERTIES: WikiFileNameMode-->
+<!--EXTERNAL_PROPERTIES: WikiFolder-->
+<!--EXTERNAL_PROPERTIES: WikiHome-->
+<!--EXTERNAL_PROPERTIES: WikiInvalidCharReplacement-->
+<!--EXTERNAL_PROPERTIES: WikiNestedTypeVisibility-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Target Name="DotNetToGitHubWiki" AfterTargets="PostBuildEvent" Condition="'$(DocumentationFile)' != ''">
+    <PropertyGroup>
+      <DocumentationFile>$([System.IO.Path]::GetFullPath($(DocumentationFile)))</DocumentationFile>
+      <WikiTool>dotnet "$(MSBuildThisFileDirectory)../tools/$(MSBuildThisFileName).dll" -a "$(TargetPath)" -x "$(DocumentationFile)"</WikiTool>
+      <WikiTool Condition="'$(WikiFileNameMode)' != ''">$(WikiTool) -f $(WikiFileNameMode)</WikiTool>
+      <WikiTool Condition="'$(WikiHome)' != ''">$(WikiTool) -h $(WikiHome)</WikiTool>
+      <WikiTool Condition="'$(WikiInvalidCharReplacement)' != ''">$(WikiTool) -i $(WikiInvalidCharReplacement)</WikiTool>
+      <WikiTool Condition="'$(WikiNestedTypeVisibility)' != ''">$(WikiTool) -n $(WikiNestedTypeVisibility)</WikiTool>
+      <WikiTool Condition="'$(WikiFolder)' != ''">$(WikiTool) -o $([System.IO.Path]::GetFullPath($(WikiFolder)))</WikiTool>
+    </PropertyGroup>
+    <Exec Command="$(WikiTool)"/>
+  </Target>
+</Project>

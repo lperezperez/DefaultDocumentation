@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<AssemblyName>DotNetToGitHubWiki</AssemblyName>
+		<AssemblyTitle>.NET code documentation to GitHub Wiki pages</AssemblyTitle>
+		<Copyright>2021 © Luis Pérez</Copyright>
+		<LangVersion>latest</LangVersion>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<Version>0.0.1</Version>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<Authors>Luis Pérez</Authors>
+		<Description>Generates a set of Markdown files from the code documentation of an assembly which can be added to the Wiki section of its GitHub repository.</Description>
+		<DevelopmentDependency>true</DevelopmentDependency>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<IsTool>true</IsTool>
+		<PackageId>DotNetToGitHubWiki</PackageId>
+		<PackageIcon>Icon.png</PackageIcon>
+		<PackageLicenseExpression>MIT-0</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/lperezperez/DotNetToGitHubWiki</PackageProjectUrl>
+		<PackageTags>documentation;github;markdown;wiki</PackageTags>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/lperezperez/DotNetToGitHubWiki.git</RepositoryUrl>
+	</PropertyGroup>
+	<ItemGroup>
+		<Content Include="build/DotNetToGitHubWiki.targets" PackagePath="build" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="FluentCommandLineParser-netstandard" Version="1.4.3.13"/>
+		<PackageReference Include="ICSharpCode.Decompiler" Version="6.2.0.6124"/>
+	</ItemGroup>
+	<ItemGroup Condition="'$(Configuration)'=='Release'">
+		<None Include="../Icon.png" Pack="true" PackagePath="$(PackageIcon)" Visible="false"/>
+		<None Include="$(OutputPath)/*.dll" Pack="true" PackagePath="tools" Visible="false"/>
+		<None Remove="$(OutputPath)/$(AssemblyName).dll" Pack="true" PackagePath="tools" Visible="false"/>
+	</ItemGroup>
+</Project>

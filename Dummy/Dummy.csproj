@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>Wiki/Dummy.xml</DocumentationFile>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="DotNetToGitHubWiki" Version="1.0.0" IncludeAssets="analyzers;build;buildtransitive;contentfiles;native;runtime" PrivateAssets="all"/>
+  </ItemGroup>
+</Project>

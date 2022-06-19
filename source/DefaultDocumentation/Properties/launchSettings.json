@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "DefaultDocumentation": {
-      "commandName": "Project",
-      "commandLineArgs": "/assembly:\"D:\\Projects\\DefaultEcs\\source\\DefaultEcs\\bin\\Release\\netstandard1.1\\DefaultEcs.dll\" /xml:\"D:\\Projects\\DefaultEcs\\source\\DefaultEcs\\bin\\Release\\netstandard1.1\\DefaultEcs.xml\" /output:\"D:\\Projects\\DefaultEcs\\documentation\\api\""
-    }
-  }
-}

@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "DotNetToGitHubWiki": {
+      "commandName": "Project",
+      "commandLineArgs":
+        "-a \"C:\\Users\\lpere\\Source\\Repos\\DotNetToGitHubWiki\\Dummy\\bin\\Release\\netcoreapp3.1\\Dummy.dll\" -x \"C:\\Users\\lpere\\Source\\Repos\\DotNetToGitHubWiki\\Dummy\\Wiki\\Dummy.xml\""
+    }
+  }
+}
